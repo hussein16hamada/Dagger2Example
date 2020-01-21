@@ -9,11 +9,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.hussein.dagger.R;
+import com.hussein.dagger.util.Constants;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class AppModule {
@@ -22,6 +25,19 @@ public class AppModule {
     // put other dependencies that are not related to activities
     // like Glide , Retrofit ....
     // Methods here better to be static like doc said
+
+
+
+    // gonna use this obj through the whole app( app level)
+    @Singleton
+    @Provides
+    static Retrofit provideRetrofitInstance(){
+
+        return new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
     @Singleton
     @Provides

@@ -9,7 +9,7 @@ import dagger.Module;
 
 @Module
 public abstract class ViewModelFactoryModule {
-
+    // to use MVVM
     // this responsible for providing tte ViewModelFactory
     // and has to add on AppComponent because gonna used by all ViewModels in the project
     @Binds
